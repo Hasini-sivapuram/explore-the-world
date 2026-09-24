@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find Your Next Adventure| Smart Travel Planner</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+   
+   <div class="snow">
+    <span style="left:5%; animation-duration:6s;"></span>
+    <span style="left:10%; animation-duration:8s;"></span>
+    <span style="left:15%; animation-duration:5s;"></span>
+    <span style="left:20%; animation-duration:7s;"></span>
+    <span style="left:25%; animation-duration:9s;"></span>
+    <span style="left:30%; animation-duration:6s;"></span>
+    <span style="left:35%; animation-duration:8s;"></span>
+    <span style="left:40%; animation-duration:5s;"></span>
+    <span style="left:45%; animation-duration:7s;"></span>
+    <span style="left:50%; animation-duration:9s;"></span>
+    <span style="left:55%; animation-duration:6s;"></span>
+    <span style="left:60%; animation-duration:8s;"></span>
+    <span style="left:65%; animation-duration:5s;"></span>
+    <span style="left:70%; animation-duration:7s;"></span>
+    <span style="left:75%; animation-duration:9s;"></span>
+    <span style="left:80%; animation-duration:6s;"></span>
+    <span style="left:85%; animation-duration:8s;"></span>
+    <span style="left:90%; animation-duration:5s;"></span>
+    <span style="left:95%; animation-duration:7s;"></span>
+</div>
+<header>
+<div class="logo" onclick="showPage('home')">Find Your Next Adventure</div>
+<nav>
+<button class="nav-btn" onclick="showPage('home')">Home</button>
+<button class="nav-btn" onclick="showPage('destinations')">Explore</button>
+<button class="nav-btn" onclick="showPage('login')">Login</button>
+
+<!-- Menu Toggle -->
+<button class="nav-btn menu-btn" onclick="toggleMenu()">☰</button>
+</nav>
+
+<!-- Hidden Menu -->
+<div id="dropdownMenu">
+<button onclick="showPage('questions')">Mood</button>
+<button onclick="showPage('budget')">Plan</button>
+<button onclick="showPage('booking')">Bookings</button>
+<button onclick="showPage('gallery')">Gallery</button>
+<button onclick="showPage('wishlist')">Wishlist</button>
+<button onclick="showPage('profile')">Profile</button>
+<button onclick="showPage('admin')">Admin</button>
+<button onclick="showPage('map')">Map</button>
+<button onclick="showPage('about')">About</button>
+<button onclick="showPage('contact')">Contact</button>
+<button onclick="logout()">Logout</button>
+</div>
+
+</header>
+
+<section id="wishlist">
+<h2>My Wishlist ❤️</h2>
+<div id="wishlistContainer"></div>
+</section>
+
+<section id="home" class="active">
+<div class="hero">
+<h1>Find Your Next Adventure</h1>
+<button class="nav-btn" onclick="showPage('questions')">Start</button>
+</div>
+</section>
+
+<section id="questions">
+<h2>Select Your Mood</h2>
+<label><input type="radio" name="place" value="Beach"> Beach</label>
+<label><input type="radio" name="place" value="Mountains"> Mountains</label>
+<label><input type="radio" name="place" value="City"> City</label>
+<br><br>
+<button class="nav-btn" onclick="recommendPlace()">Get Recommendation</button>
+</section>
+
+<section id="destinations">
+<h2>Destinations</h2>
+<input placeholder="Search Destination" onkeyup="searchDest(this.value)">
+<div class="cards-grid" id="destContainer"></div>
+</section>
+
+<section id="budget">
+<h2>Budget Planner</h2>
+<div class="auth-card">
+<input id="budgetAmount" placeholder="Budget">
+<input id="days" placeholder="Days">
+<input id="people" placeholder="People">
+<button class="nav-btn" onclick="calculateBudget()">Calculate</button>
+<h3 id="budgetResult"></h3>
+</div>
+</section>
+
+<section id="gallery">
+<h2>Gallery</h2>
+
+<div class="gallery-grid">
+<img src="https://images.unsplash.com/photo-1593693397690-362cb9666fc2?w=600" onclick="openImage(this.src)">
+<img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600" onclick="openImage(this.src)">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" onclick="openImage(this.src)">
+<img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34" onclick="openImage(this.src)">
+<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" onclick="openImage(this.src)">
+<img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2" onclick="openImage(this.src)">
+<img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e" onclick="openImage(this.src)">
+<img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e" onclick="openImage(this.src)">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" onclick="openImage(this.src)">
+<img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad" onclick="openImage(this.src)">
+<img src="https://images.unsplash.com/photo-1482192596544-9eb780fc7f66" onclick="openImage(this.src)">
+<img src="https://images.unsplash.com/photo-1439853949127-fa647821eba0" onclick="openImage(this.src)">
+<img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e" onclick="openImage(this.src)">
+<img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d" onclick="openImage(this.src)">
+<img src="https://images.unsplash.com/photo-1509644851169-2acc08aa25b5" onclick="openImage(this.src)">
+<img src="https://images.unsplash.com/photo-1465311440653-ba9b1d9b0f0b" onclick="openImage(this.src)">
+<img src="https://images.unsplash.com/photo-1564507592333-c60657eea523" onclick="openImage(this.src)">
+<img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da" onclick="openImage(this.src)">
+<img src="https://images.unsplash.com/photo-1587135941948-670b381f08ce" onclick="openImage(this.src)">
+<img src="https://images.unsplash.com/photo-1599661046289-e31897846e41" onclick="openImage(this.src)">
+<img src="https://images.unsplash.com/photo-1588412079929-790b9f593d8e" onclick="openImage(this.src)">
+<img src="https://images.unsplash.com/photo-1572431447238-425af66a273b" onclick="openImage(this.src)">
+<img src="https://images.unsplash.com/photo-1609947017136-9daf32a5eb16" onclick="openImage(this.src)">
+<img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" onclick="openImage(this.src)">
+<img src="https://images.unsplash.com/photo-1585506942812-e72b29cef752" onclick="openImage(this.src)">
+<img src="https://images.unsplash.com/photo-1564507004663-b6dfb3c824d5" onclick="openImage(this.src)">
+
+</div>
+
+</section>
+
+<section id="booking">
+<h2>Your Bookings</h2>
+<div id="bookingList"></div>
+</section>
+
+<section id="profile">
+<h2>User Profile</h2>
+<div class="auth-card">
+<input id="profileName" placeholder="Name">
+<input id="profileEmail" placeholder="Email">
+<button class="nav-btn" onclick="saveProfile()">Save</button>
+</div>
+</section>
+
+<section id="admin">
+<h2>Admin Panel</h2>
+<div class="auth-card">
+<input id="adminName" placeholder="Destination Name">
+<input id="adminPrice" placeholder="Price">
+<input id="adminImg" placeholder="Image URL">
+<button class="nav-btn" onclick="addDestination()">Add Destination</button>
+</div>
+<div id="adminList"></div>
+</section>
+
+<section id="map">
+<h2>Destination Map</h2>
+<iframe id="mapFrame" width="100%" height="400"></iframe>
+</section>
+
+<section id="about">
+<h2>About</h2>
+<p>Smart Travel Planner is an intelligent and user-friendly platform designed to make travel planning simple, fast, and personalized ✨. Instead of spending hours searching for destinations, our system understands your mood 😊, budget 💰, and preferences to suggest the perfect places for your next trip.
+
+Whether you’re dreaming of a relaxing beach 🏖️, an adventurous mountain escape ⛰️, or a vibrant city experience 🏙️, Smart Travel Planner helps you discover the best options effortlessly. It combines smart recommendations 🤖 with a smooth and engaging interface to give you a seamless planning experience.
+
+Our mission is to transform travel planning into something exciting and stress-free 🌍—so you can focus on exploring new places, creating memories 📸, and enjoying every moment of your journey ❤️.</p>
+
+</section>
+
+<section id="contact" style="padding:50px; background:linear-gradient(135deg,#E0F7FF,#BEE9FF,#F8FDFF); color:#0F172A; text-align:center; box-shadow:0 0 40px rgba(125,211,252,0.3) inset;">    
+
+
+        <p style="color:#475569;">We’d love to hear from you! Reach out for travel help or feedback ✨</p>
+    <h3 style="font-size:32px; margin-bottom:10px;">Contact Us</h3>
+    <p style="color:#475569;">We’d love to hear from you! Reach out for travel help or feedback ✨</p>
+
+    <div style="margin-top:30px;">
+        <p>📧 Email: support@travelplanner.com</p>
+        <p>📱 Phone: +91 98765 43210</p>
+        <p>📍 Location: Guntur, Andhra Pradesh, India</p>
+    </div>
+
+    <!-- ✅ FIXED FORM --> 
+    <form action="https://formspree.io/f/xbdwjbaa" method="POST" style="margin-top:30px;">
+        
+        <input type="text" name="name" placeholder="Your Name" required 
+        style="padding:12px; width:260px; margin:10px; border-radius:10px; border:none; background:#1e293b; color:white;"><br>
+
+        <input type="email" name="email" placeholder="Your Email" required 
+        style="padding:12px; width:260px; margin:10px; border-radius:10px; border:none; background:#1e293b; color:white;"><br>
+
+        <textarea name="message" placeholder="Your Message" rows="4" required
+        style="padding:12px; width:260px; margin:10px; border-radius:10px; border:none; background:#1e293b; color:white;"></textarea><br>
+
+        <button type="submit" 
+        style="padding:12px 25px; border:none; border-radius:25px; background:#2563eb; color:white; cursor:pointer; font-weight:bold;">
+        Send Message
+        </button>
+
+    </form>
+
+</section>
+
+<section id="login">
+<div class="auth-card">
+<h2>Login / Sign Up</h2>
+<input id="username" placeholder="Username">
+<input id="password" type="password" placeholder="Password">
+<button class="nav-btn" onclick="login()">Login</button>
+<button class="nav-btn" onclick="signup()">Sign Up</button>
+</div>
+</section>
+
+<section id="payment">
+<div class="auth-card">
+<h2>Booking Details</h2>
+<input id="travelDate" type="date">
+<input id="peopleCount" placeholder="Number of People">
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=TravelBooking">
+<button class="nav-btn" onclick="payNow()">Pay Now</button>
+</div>
+</section>
+
+<div id="popup">
+<div class="popup-box">
+<h2>Payment Successful</h2>
+<button onclick="closePopup()">Close</button>
+</div>
+</div>
+<div id="imgPopup" style="
+display:none;
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:rgba(0,0,0,0.9);
+justify-content:center;
+align-items:center;
+z-index:2000;
+">
+    <img id="popupImg" style="max-width:90%;max-height:90%;border-radius:20px;">
+</div>
+<script src="script.js"></script>
+<!-- Floating AI Button -->
+<button id="chatToggle" onclick="toggleChat()">🤖</button>
+
+<!-- Chat Box -->
+<div id="aiChat">
+    <div id="chatHeader">AI Travel Assistant ✈️</div>
+    <div id="chatBox"></div>
+
+    <div class="chat-input">
+        <button onclick="startListening()">🎤 Speak</button>
+    </div>
+</div>
+</body>
+</html>

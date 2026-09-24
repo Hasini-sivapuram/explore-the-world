@@ -1,0 +1,407 @@
+frozen
+
+/* ===== ANIMATIONS ===== */
+
+/* Fade In */
+@keyframes fadeIn {
+    from {opacity:0; transform:translateY(30px);}
+    to {opacity:1; transform:translateY(0);}
+}
+
+/* Floating effect */
+@keyframes float {
+    0% { transform:translateY(0px);}
+    50% { transform:translateY(-15px);}
+    100% { transform:translateY(0px);}
+}
+
+/* ❄️ Frozen Glow instead of gold */
+body::before {
+    content:"";
+    position:fixed;
+    width:300px;
+    height:300px;
+    background:rgba(96,165,250,0.2); /* icy blue */
+    filter:blur(120px);
+    top:20%;
+    left:10%;
+    z-index:-1;
+}
+
+/* Glow Pulse */
+@keyframes glow {
+    0% { box-shadow:0 0 10px rgba(96,165,250,0.3);}
+    50% { box-shadow:0 0 25px rgba(147,197,253,0.8);}
+    100% { box-shadow:0 0 10px rgba(96,165,250,0.3);}
+}
+
+/* Apply animations */
+section { animation: fadeIn 0.6s ease; }
+.hero h1 { animation: fadeIn 1s ease; }
+.hero p { animation: fadeIn 1.2s ease; }
+.hero button { animation: fadeIn 1.4s ease; }
+.hero { animation: float 6s ease-in-out infinite; }
+
+.nav-btn:hover {
+    transform: scale(1.1);
+    animation: glow 1.5s infinite;
+}
+
+/* Card animation */
+.card {
+    transition: all 0.3s ease;
+    animation: fadeIn 0.6s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 10px 30px rgba(96,165,250,0.4);
+}
+
+/* Gallery animation */
+.gallery-grid img { animation: fadeIn 0.8s ease; }
+
+/* Button click */
+.nav-btn:active { transform: scale(0.95); }
+
+/* ❄️ FROZEN THEME COLORS */
+:root { 
+    --primary: #60A5FA;
+    --bg-dark: #eef8ff;
+    --bg-card: #f6fbff;
+    --text-main: #0f172a;
+    --gradient: linear-gradient(135deg, #60A5FA 0%, #93C5FD 100%);
+}
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Plus Jakarta Sans', sans-serif;
+}
+
+/* ❄️ Background */
+body {
+    background: #eef8ff;
+    color: #0f172a;
+}
+
+/* ❄️ Header */
+header { 
+    background: #d9f0ff;
+    padding: 15px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+}
+
+/* Logo */
+.logo {
+    font-size:1.5rem;
+    color:#2563eb;
+    font-weight:700;
+    cursor:pointer;
+}
+
+nav { display:flex; gap:8px; flex-wrap:wrap; }
+
+/* Buttons */
+.nav-btn {
+    background: var(--gradient);
+    border:none;
+    padding:8px 14px;
+    border-radius:20px;
+    font-weight:bold;
+    cursor:pointer;
+    color:white;
+}
+
+/* Sections */
+section {
+    display:none;
+    padding:110px 6%;
+}
+
+.active { display:block; }
+
+/* Hero */
+.hero {
+    height:70vh;
+    background:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") center/cover;
+    border-radius:20px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+/* Grid */
+.cards-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+/* ❄️ Cards */
+.card {
+    background:#f6fbff;
+    border-radius:20px;
+    overflow:hidden;
+    color:#0f172a;
+}
+
+.card img {
+    width:100%;
+    height:160px;
+    object-fit:cover;
+}
+
+.card-body { padding:15px; }
+
+/* ❄️ Auth Card */
+.auth-card {
+    max-width:400px;
+    margin:auto;
+    background:#f6fbff;
+    padding:25px;
+    border-radius:20px;
+}
+
+/* ❄️ Inputs */
+input, select {
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    background:#f0f9ff;
+    border:1px solid #cfe8ff;
+    color:#0f172a;
+}
+
+/* ❄️ Booking */
+.booking-item {
+    margin:10px 0;
+    padding:12px;
+    background:#e6f4ff;
+    border-radius:10px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+}
+
+/* Popup */
+#popup {
+    display:none;
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(0,0,0,0.5);
+    justify-content:center;
+    align-items:center;
+}
+
+.popup-box {
+    background:white;
+    color:black;
+    padding:30px;
+    border-radius:10px;
+}
+
+/* Gallery */
+.gallery-grid {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap:20px;
+}
+
+.gallery-grid img {
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-radius:20px;
+    cursor:pointer;
+    transition:0.4s;
+    filter:brightness(0.9);
+}
+
+.gallery-grid img:hover {
+    transform:scale(1.08);
+    filter:brightness(1);
+    box-shadow:0 10px 30px rgba(96,165,250,0.4);
+}
+/* Snow container */
+.snow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999; /* make it visible above all */
+}
+
+/* Snowflakes */
+.snow span {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.9;
+    box-shadow: 0 0 8px rgba(255,255,255,0.8);
+    animation: fall linear infinite;
+}
+
+/* Falling animation */
+@keyframes fall {
+    0% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+/* Random positions & speeds */
+.snow span:nth-child(1)  { left: 5%;  animation-duration: 6s; }
+.snow span:nth-child(2)  { left: 10%; animation-duration: 8s; }
+.snow span:nth-child(3)  { left: 15%; animation-duration: 5s; }
+.snow span:nth-child(4)  { left: 20%; animation-duration: 7s; }
+.snow span:nth-child(5)  { left: 25%; animation-duration: 9s; }
+.snow span:nth-child(6)  { left: 30%; animation-duration: 6s; }
+.snow span:nth-child(7)  { left: 35%; animation-duration: 8s; }
+.snow span:nth-child(8)  { left: 40%; animation-duration: 5s; }
+.snow span:nth-child(9)  { left: 45%; animation-duration: 7s; }
+.snow span:nth-child(10) { left: 50%; animation-duration: 9s; }
+.snow span:nth-child(11) { left: 55%; animation-duration: 6s; }
+.snow span:nth-child(12) { left: 60%; animation-duration: 8s; }
+.snow span:nth-child(13) { left: 65%; animation-duration: 5s; }
+.snow span:nth-child(14) { left: 70%; animation-duration: 7s; }
+.snow span:nth-child(15) { left: 75%; animation-duration: 9s; }
+.snow span:nth-child(16) { left: 80%; animation-duration: 6s; }
+.snow span:nth-child(17) { left: 85%; animation-duration: 8s; }
+.snow span:nth-child(18) { left: 90%; animation-duration: 5s; }
+.snow span:nth-child(19) { left: 95%; animation-duration: 7s; }
+
+/* Floating Button */
+#chatToggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg,#C5A059,#E2C286);
+    border: none;
+    padding: 16px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 2000;
+    box-shadow: 0 0 15px rgba(197,160,89,0.6);
+    transition: 0.3s;
+}
+
+#chatToggle:hover {
+    transform: scale(1.1);
+}
+
+/* Chat Box */
+#aiChat {
+    display: none;
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 300px;
+    background: #1E293B;
+    border-radius: 15px;
+    overflow: hidden;
+    z-index: 2000;
+    box-shadow: 0 0 25px rgba(0,0,0,0.5);
+    animation: fadeIn 0.3s ease;
+}
+
+/* Header */
+#chatHeader {
+    background: linear-gradient(135deg,#b7c559,#e2d786);
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+}
+
+/* Messages */
+#chatBox {
+    height: 220px;
+    overflow-y: auto;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.message {
+    margin: 6px 0;
+    padding: 8px 10px;
+    border-radius: 10px;
+    max-width: 80%;
+}
+
+.user {
+    background: #334155;
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.bot {
+    background: #475569;
+}
+
+/* Input */
+.chat-input {
+    padding: 10px;
+    border-top: 1px solid #333;
+}
+
+.chat-input button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: linear-gradient(135deg,#C5A059,#E2C286);
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Menu Button */
+.menu-btn {
+    font-size: 18px;
+}
+
+/* Dropdown */
+#dropdownMenu {
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: 70px;
+    background: #1E293B;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+#dropdownMenu button {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+    padding: 8px;
+    background: none;
+    border: none;
+    color: white;
+    text-align: left;
+    cursor: pointer;
+}
+
+#dropdownMenu button:hover {
+    background: rgba(197,160,89,0.2);
+}
